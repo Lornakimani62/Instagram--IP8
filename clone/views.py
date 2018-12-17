@@ -4,6 +4,6 @@ import datetime as dt
 def home(request):
 
     date = dt.date.today()
-    
 
-    render('index.html')
+
+    return render(request,'index.html')

@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block content%}
+<br>
+<br>
+<br>
+<br>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col m6 s6 container">
+
+                <h4 class="col m12"><i id="avatar" class=" center-align fa fa-user-circle"></i> {{user.username}}</h4>
+                <p class="col m12">{{user.profile.bio}}</p>
+            </div>
+            <div class="container col m6 s6">
+                    <a class='dropdown-trigger btn-large col m6' href='#' data-target='dropdown1'><i class="fa fa-cog"></i></a>
+
+                    <ul id='dropdown1' class='dropdown-content'>
+                            <li><a href="#!">Profile</a></li>
+                            <li class="divider" tabindex="-1"></li>
+                            <li><a href="/logout">LogOut</a></li>
+                    </ul>
+            </div>
+        </div>
+
+        <br><br>
+
+        <div class="row">
+                <div class="col m4">Posts <span>{{images|length}}</span></div>
+                <div class="col m4">Followers <span>0</span></div>
+                <div class="col m4">Following <span>0</span></div>
+
+        </div>
+
+        <br>
+
+        <div class="col m2"></div> <hr class="col m8"><div class="col m2"></div>
+
+        <div class="row">
+
+            {% for image in images %}
+
+                <div class="col m4">
+
+                    <a href="/post/{{image.id}}">
+                    <div>
+                            <div class="card img-icon">
+                                    <div class="card-image">
+
+                                        <img class="prof-pics" src="{{image.image.url}}" alt="">
+
+                                    </div>
+
+                                </div>
+                    </div>
+                    </a>
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+
+
+</div>

@@ -6,4 +6,4 @@ def home(request):
     date = dt.date.today()
 
 
-    return render(request,'index.html')
+    return render(request,'registration/login.html')

@@ -10,7 +10,7 @@ from django.shortcuts import redirect
 @login_required(login_url='/accounts/login/')
 def home(request):
     images = Image.objects.all()
-    return render(request, "home.html",)
+    return render(request, "home.html", {"images":images})
 
 @login_required(login_url='/accounts/login/')
 def profile(request):

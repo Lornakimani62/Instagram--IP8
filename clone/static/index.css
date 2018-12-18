@@ -1,0 +1,24 @@
+@import 'reset';
+
+body{
+    background: #fff;
+}
+
+.fa{
+    color: #111;
+    font-size: 25px;
+}
+
+#avatar{
+    font-size: 60px;
+}
+
+.img-icon{
+    height: 425px;
+    width: 400px;
+}
+
+.prof-pics{
+    height: 425px;
+    width: 425px;
+}

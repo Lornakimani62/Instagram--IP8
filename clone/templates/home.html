@@ -22,40 +22,38 @@
                                     <span class="col m8 card-title"><h6>  {{image.profile}}</h6></span>
                             </div>
                         </div>
+                        <a href="/image/{{image.id}}"></a>
                         <div class="card-image">
-                          <a class="white-text"  href="/image/{{image.id}}"><img src="{{image.image.url}}" class="img-responsive"></a>
+                                <img src="{{image.image.url}}" class="img-responsive" alt="">
                         </div>
-                        <div class="card-content">
-                                <span class=""><i class="fa fa-heart"></i></span><span>  0 </span><span>Likes</span>
-                        </div>
-                        <div class="card-content">
-                                <p>
-                                <span class="blue-text">{{image.profile}}  </span>
-                                <span>{% autoescape on %}{{image.image_caption| safe}}{% endautoescape %}</span>
-                                </p>
+                                <div class="card-content">
+                                          <span class=""><i class="fa fa-heart"></i></span><span>  0 </span><span>Likes</span>
+                                  </div>
+                                  <div class="card-content">
+                                          <p>
+                                          <span class="blue-text">{{image.profile}}  </span>
+                                          <span>{% autoescape on %}{{image.image_caption| safe}}{% endautoescape %}</span>
+                                          </p>
+                                  </div>
+                                  <br>
+                                  <a class="hide-on-large-only" href="">View Comments</a>
 
-
-                        </div>
-                        <br>
-                        <a class="hide-on-large-only" href="">View Comments</a>
-
-                        <div class="card-action">
-                                <div class="row">
-                                        <form class="col s12">
+                                  <div class="card-action">
                                           <div class="row">
-                                            <div class="input-field col s10">
-                                              <textarea id="textarea1" class="materialize-textarea"></textarea>
-                                              <label for="textarea1">Comment</label>
-                                            </div>
-                                          </div>
-                                        </form>
-                                      </div>
+                                                  <form class="col s12">
+                                                    <div class="row">
+                                                      <div class="input-field col s10">
+                                                        <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                                        <label for="textarea1">Comment</label>
+                                                      </div>
+                                                    </div>
+                                                  </form>
+                                                </div>
+                                        </div>
+                                </div>
                         </div>
-
-                      </div>
+                <div class="col m1"></div>
         </div>
-        <div class="col m1"></div>
-       </div>
 
 
        {% endfor %}

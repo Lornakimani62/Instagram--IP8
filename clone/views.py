@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.views import logout
 from django.contrib.auth.decorators import login_required
 from .models import *
+from .forms import ImageForm
 from django.shortcuts import redirect
 # Create your views here.
 
@@ -54,5 +55,5 @@ def upload(request):
             image.save()
         return redirect('/')
     else:
-        form = NewImageForm()
+        form = ImageForm()
     return render(request, 'upload.html', {"form": form})

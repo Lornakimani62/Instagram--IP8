@@ -18,3 +18,11 @@ def profile(request):
     images = Image.objects.filter(user=current_user)
 
     return render(request, "profile.html", {"images":images})
+
+@login_required(login_url='/accounts/login/')
+def image(request,image_id):
+    try:
+        image = Image.objects.get(id = post_id)
+    except DoesNotExist:
+        raise Http404()
+    return render(request,"image.html", {"image":image})

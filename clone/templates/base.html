@@ -1,4 +1,4 @@
-{% load bootstrap3 %}
+{% load bootstrap4 %}
 {% load staticfiles %}
 <!DOCTYPE html>
 <html>
@@ -15,16 +15,24 @@
   {%endif%}
 
   {% block styles %}
-    {% bootstrap_css %}
-  {% endblock %}
+
+  <link rel="stylesheet" href="{% static 'index.css' %}">
+
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+{% endblock %}
 
 </head>
 
 <body>
 
+  {% include "navbar.html" %}
   {% block content %}
 
-  {% include "navbar.html" %}
   {%endblock%}
 
 

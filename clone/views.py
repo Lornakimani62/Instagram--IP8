@@ -22,7 +22,37 @@ def profile(request):
 @login_required(login_url='/accounts/login/')
 def image(request,image_id):
     try:
-        image = Image.objects.get(id = post_id)
+        image = Image.objects.get(id = image_id)
     except DoesNotExist:
         raise Http404()
     return render(request,"image.html", {"image":image})
+
+
+@login_required(login_url='/accounts/login/')
+def search(request):
+
+    if 'user' in request.GET and request.GET["user"]:
+        search_term = request.GET.get("user")
+        searched_users = Profile.find_username(search_term)
+        message = f"{search_term}"
+
+        return render(request, 'search.html',{"message":message,"users": searched_users})
+
+
+    else:
+        message = "User does not exist"
+        return render(request, 'search.html',{"message":message})
+
+@login_required(login_url='/accounts/login/')
+def upload(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = ImageForm(request.POST, request.FILES)
+        if form.is_valid():
+            image = form.save(commit=False)
+            image.user = current_user
+            image.save()
+        return redirect('/')
+    else:
+        form = NewImageForm()
+    return render(request, 'upload.html', {"form": form})
